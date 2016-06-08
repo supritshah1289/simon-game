@@ -10,4 +10,4 @@ Simon Game in HTML, CSS, JavaScript
 6. If user fails to click the colorboxes in pattern as flashed
 7. The player will lose the game
 
-![myimage-alt-tag](https://www.dropbox.com/s/im00hnqlpmrt0z3/simon.png?dl=0)
+![Simon Design](https://www.dropbox.com/s/im00hnqlpmrt0z3/simon.png?dl=0 "Simon-game")
