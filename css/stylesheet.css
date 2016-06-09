@@ -6,7 +6,7 @@ image credit to feelgrafix.com
 */
 
 body{
-  background-image: url("./assets/background.jpg");
+  background-image: url("../assets/background.jpg");
 }
 .blue{
   background-color: #0066ff;
@@ -32,7 +32,8 @@ https://css-tricks.com/examples/ShapesOfCSS/
   border-bottom: 25px solid transparent;
   position: absolute;
   left: 180px;
-  top: 283px;
+  top: 277px;
+  cursor: pointer;
 }
 
 /*

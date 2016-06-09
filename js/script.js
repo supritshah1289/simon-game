@@ -1,16 +1,6 @@
 $(document).ready(function(){
   console.log("connected to Javascript file");
 
-function startGame() {
-    removeClicks();
-    resetGame();
-    addPattern();
-    addPattern();
-    playPattern();
-  }
-
-
-
 });
 
 
