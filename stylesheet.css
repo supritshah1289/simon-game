@@ -1,0 +1,67 @@
+/*
+all the classes are alphabetically ordered in this css file
+*/
+/*
+image credit to feelgrafix.com
+*/
+
+body{
+  background-image: url("./assets/background.jpg");
+}
+.blue{
+  background-color: #0066ff;
+  border: 1px solid black;
+  border-radius: 0 0 100px 0;
+}
+
+.gameBoard{
+  width: 500px;
+  height: 400px;
+  margin: 100px auto;
+  position: relative;
+}
+/*
+This is an example code listed on css-trick.com
+https://css-tricks.com/examples/ShapesOfCSS/
+*/
+.play{
+  width: 0;
+  height: 0;
+  border-top: 25px solid transparent;
+  border-left: 50px solid #FF00FF;
+  border-bottom: 25px solid transparent;
+  position: absolute;
+  left: 180px;
+  top: 283px;
+}
+
+/*
+GA Dash tutorial reference to create border-radius curves on top and bottom of squares div
+*/
+
+.green{
+  background-color: #00ff00;
+  border: 1px solid black;
+  border-radius: 0 100px 0 0; /*border radius topleft topright bottomright bottomleft co-ordinates*/
+}
+
+.red{
+  background-color: #ff0000;
+  border: 1px solid black;
+  border-radius: 100px 0 0 0;
+}
+.square{
+  height: 200px;
+  width: 200px;
+  float: left; /*reduced the space between all the squares*/
+
+}
+
+.yellow{
+  background-color: #ffff00;
+  border: 1px solid black;
+  border-radius: 0 0 0 100px;
+}
+
+
+
