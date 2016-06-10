@@ -8,6 +8,9 @@ image credit to feelgrafix.com
 body{
   background-image: url("../assets/background.jpg");
 }
+p{
+  font-weight: 20px;
+}
 .blue{
   background-color: #0066ff;
   border: 1px solid black;
@@ -32,7 +35,7 @@ https://css-tricks.com/examples/ShapesOfCSS/
   border-bottom: 25px solid transparent;
   position: absolute;
   left: 180px;
-  top: 277px;
+  top: 307px;
   cursor: pointer;
 }
 
