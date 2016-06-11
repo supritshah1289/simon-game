@@ -1,53 +1,99 @@
 //lightUp function takes number input - its an id of tile
 var litArray = []
-var level = 3;
+var level = 1;
+var gameOver = false;
 
-function callPattern(){
-  for(i=0; i<=level; i++){
-    generateRandomNumber();
-  }
+function startGame() {
+    disableClicks();
+    callPattern(level);
+    lightUp(litArray);
+    userClick();
+}
+
+function callPattern(levelVal) {
+    for (i = 0; i <= levelVal; i++) {
+        generateRandomNumber();
+    }
 }
 
 //takes number as an input and lights up that tile based on id
-function lightUp(){
-  for(i=0; i<litArray.length; i++){
-    var id = "#"+litArray[i];
-    $(id).fadeTo("slow",0.2).fadeTo("slow",1);
-    $(id).addClass('lit');
-    // litArray.push(id);
-    console.log(litArray);
-  }
+function lightUp(arr) {
+    gameOver = true;
+    for (i = 0; i < arr.length; i++) {
+        var id = "#" + litArray[i];
+        $(id).animate({
+            opacity: .2
+        }, i * 700).animate({
+            opacity: 1
+        }, 100);
+        // $(id).fadeTo("slow",0.2).fadeTo("slow",1);
+    }
 }
 
-function userAnswer(){
-    for(let i=0; i<litArray.length; i++){
-      var shifterNumber = litArray[i];
-      var tileId = $(".square").attr('id')
-      $("#"+litArray[i]).on('click',function(){
-        console.log(this);
-        litArray.unshift();
-        $(this).off('click');
-        console.log(litArray);
+function userClick() {
+    $(".square").click(function() {
+        var targetElement = litArray.shift();
+        var squareId = $(this).attr('id');
+        $(this).addClass('animated flash').removeClass('animated flash')
+        // $(this).animate({
+        //     opacity: .2
+        // },600).animate({
+        //     opacity: 1
+        // }, 100);
+        // console.log("squareId = ", squareId);
+        // console.log("targetElement = ", targetElement);
+        // console.log("typeOF squareId = ", typeof squareId);
+        // console.log("typeof targetElement = ", typeof targetElement);
+        if (Number(squareId) === targetElement) {
+            // console.log("They are equal!. arr =", litArray);
+            if (litArray.length <= 0) {
+                level++;
+                $('h2').text("Level: " + level);
+                callPattern(level);
+                setTimeout(lightUp(litArray),1500);
+
+            }
+        } else {
+            gameOver = false;
+            console.log("You clicked on wrong tile");
+            $('h2').css({
+              'color' : "#2BDFF5",
+              'font-family': "Helvetica"
+            });
+            $('h2').text("Game Over");
+
+            level = 0
+            litArray = [];
+        }
     })
-  }
+
+}
+
+function reset() {
+    level = 0;
+    $('h2').text("Level: " + level);
+    $('.play').click(function() {
+        if (gameOver === false) {
+            startGame();
+        }
+    });
+
 }
 
 //function inserts random number into litArray one by one
-function generateRandomNumber(){
-  litArray.push(Math.ceil(Math.random()*4));
+function generateRandomNumber() {
+    litArray.push(Math.ceil(Math.random() * 4));
 }
 
-callPattern();
-lightUp();
-userAnswer();
-console.log(litArray);
-// lightUp(4);
-// lightUp(1);
-// lightUp(3);
-// userAnswer();
+function disableClicks() {
+    $('.square').unbind();
+}
 
+$('.play').on('click', function() {
+    startGame();
+    $('h2').text("Level: 0");
 
-
+})
 
 /*
 Rough draft

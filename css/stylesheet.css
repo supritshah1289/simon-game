@@ -8,8 +8,12 @@ image credit to feelgrafix.com
 body{
   background-image: url("../assets/background.jpg");
 }
+h1{
+  color: #2BDFF5;
+}
 p{
   font-weight: 20px;
+  color: #2BDFF5;
 }
 .blue{
   background-color: #0066ff;
