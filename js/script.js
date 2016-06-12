@@ -16,17 +16,17 @@ function callPattern(levelVal) {
     }
 }
 
+
 //takes number as an input and lights up that tile based on id
 function lightUp(arr) {
     gameOver = true;
     for (i = 0; i < arr.length; i++) {
         var id = "#" + litArray[i];
         $(id).animate({
-            opacity: .2
-        }, i * 700).animate({
+            opacity: .3
+        },i* 600).animate({
             opacity: 1
         }, 100);
-        // $(id).fadeTo("slow",0.2).fadeTo("slow",1);
     }
 }
 
@@ -34,24 +34,19 @@ function userClick() {
     $(".square").click(function() {
         var targetElement = litArray.shift();
         var squareId = $(this).attr('id');
-        $(this).addClass('animated flash').removeClass('animated flash')
-        // $(this).animate({
-        //     opacity: .2
-        // },600).animate({
-        //     opacity: 1
-        // }, 100);
-        // console.log("squareId = ", squareId);
-        // console.log("targetElement = ", targetElement);
-        // console.log("typeOF squareId = ", typeof squareId);
-        // console.log("typeof targetElement = ", typeof targetElement);
+        $(this).animate({
+            opacity: .2
+        }, 500).animate({
+            opacity: 1
+        }, 100);
         if (Number(squareId) === targetElement) {
-            // console.log("They are equal!. arr =", litArray);
             if (litArray.length <= 0) {
                 level++;
                 $('h2').text("Level: " + level);
-                callPattern(level);
-                setTimeout(lightUp(litArray),1500);
 
+                callPattern(level);
+                setTimeout(lightUp(litArray),800);
+                console.log(litArray);
             }
         } else {
             gameOver = false;
@@ -60,12 +55,8 @@ function userClick() {
               'color' : "#ff0066",
               'font-family': "Helvetica"
             });
-
+            //displaying game over message using animate.css lib
             $('h2').text("Game Over. Click on Play button to start new game").addClass('animated infinite bounceOut');
-
-
-            level = 0
-            litArray = [];
         }
     })
 
@@ -95,7 +86,7 @@ $('.play').on('click', function() {
     startGame();
     $('h2').text("Level: 1");
     $('h2').removeClass('animated infinite bounceOut');
-
+    console.log(litArray);
 })
 
 /*

@@ -12,6 +12,10 @@ body{
 h1,h2{
   color: #ff0066;
 }
+h2{
+  position: relative;
+  right: 35px;
+}
 p{
   font-weight: 20px;
   color: #ff0066;
