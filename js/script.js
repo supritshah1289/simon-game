@@ -57,10 +57,12 @@ function userClick() {
             gameOver = false;
             console.log("You clicked on wrong tile");
             $('h2').css({
-              'color' : "#2BDFF5",
+              'color' : "#ff0066",
               'font-family': "Helvetica"
             });
-            $('h2').text("Game Over");
+
+            $('h2').text("Game Over. Click on Play button to start new game").addClass('animated infinite bounceOut');
+
 
             level = 0
             litArray = [];
@@ -70,7 +72,7 @@ function userClick() {
 }
 
 function reset() {
-    level = 0;
+    level = 1;
     $('h2').text("Level: " + level);
     $('.play').click(function() {
         if (gameOver === false) {
@@ -91,7 +93,8 @@ function disableClicks() {
 
 $('.play').on('click', function() {
     startGame();
-    $('h2').text("Level: 0");
+    $('h2').text("Level: 1");
+    $('h2').removeClass('animated infinite bounceOut');
 
 })
 
