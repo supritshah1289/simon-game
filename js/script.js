@@ -11,7 +11,7 @@ function startGame() {
 }
 
 function callPattern(levelVal) {
-    for (i = 0; i <= levelVal; i++) {
+    for (let i = 0; i <= levelVal; i++) {
         generateRandomNumber();
     }
 }
@@ -20,7 +20,7 @@ function callPattern(levelVal) {
 //takes number as an input and lights up that tile based on id
 function lightUp(arr) {
     gameOver = true;
-    for (i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
         var id = "#" + litArray[i];
         $(id).animate({
             opacity: .3
